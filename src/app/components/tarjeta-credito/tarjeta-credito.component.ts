@@ -48,6 +48,6 @@ export class TarjetaCreditoComponent implements OnInit {
     console.log(index);
     this.listTarjetas.splice(index, 1);
     this.toastr.error('La tarjeta fue eliminada con exito', 'Tarjeta eliminada')
-  }
+  }  
 
 }
