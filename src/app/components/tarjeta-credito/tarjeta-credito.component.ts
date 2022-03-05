@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TarjetaService } from 'src/app/services/tarjeta.service';
 
 @Component({
   selector: 'app-tarjeta-credito',
@@ -8,16 +9,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./tarjeta-credito.component.css']
 })
 export class TarjetaCreditoComponent implements OnInit {
-  listTarjetas: any[] = [
-    { titulo: 'Ismar Morales', numeroTarjeta: '789456123321', fechaExpiracion: '05/07', cvv: '123'},
-    { titulo: 'Carlos Sanchez', numeroTarjeta: '123456765432', fechaExpiracion: '05/12', cvv: '123'},
-    { titulo: 'Juan Lopez', numeroTarjeta: '43234566634', fechaExpiracion: '01/07', cvv: '435'},
-  ];
+  listTarjetas: any[] = [];
   
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private toastr: ToastrService) { 
+    private toastr: ToastrService,
+    private _tarjetaService: TarjetaService) { 
     this.form = this.fb.group({
       titular: ['', Validators.required],
       numeroTarjeta: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(16)]],
@@ -27,13 +25,23 @@ export class TarjetaCreditoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.obtenerTarjetas();
+  }
+
+  obtenerTarjetas(){
+    this. _tarjetaService.getListTarjetas().subscribe(data => {
+      console.log(data);
+      this.listTarjetas = data;
+    }, error => {
+      console.log(error)
+    })
   }
 
   agregarTarjeta(){
     console.log(this.form);
 
     const tarjeta: any = {
-      titulo: this.form.get('titular')?.value,
+      titular: this.form.get('titular')?.value,
       numeroTarjeta: this.form.get('numeroTarjeta')?.value,
       fechaExpiracion: this.form.get('fechaExpiracion')?.value,
       cvv: this.form.get('cvv')?.value,
