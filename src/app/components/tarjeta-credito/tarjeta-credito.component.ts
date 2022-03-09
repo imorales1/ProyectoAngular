@@ -10,8 +10,9 @@ import { TarjetaService } from 'src/app/services/tarjeta.service';
 })
 export class TarjetaCreditoComponent implements OnInit {
   listTarjetas: any[] = [];
-  
+  accion = 'Agregar';
   form: FormGroup;
+  id: number | undefined;
 
   constructor(private fb: FormBuilder,
     private toastr: ToastrService,
@@ -29,7 +30,7 @@ export class TarjetaCreditoComponent implements OnInit {
   }
 
   obtenerTarjetas(){
-    this. _tarjetaService.getListTarjetas().subscribe(data => {
+    this._tarjetaService.getListTarjetas().subscribe(data => {
       console.log(data);
       this.listTarjetas = data;
     }, error => {
@@ -37,8 +38,7 @@ export class TarjetaCreditoComponent implements OnInit {
     })
   }
 
-  agregarTarjeta(){
-    console.log(this.form);
+  guardarTarjeta(){
 
     const tarjeta: any = {
       titular: this.form.get('titular')?.value,
@@ -47,15 +47,48 @@ export class TarjetaCreditoComponent implements OnInit {
       cvv: this.form.get('cvv')?.value,
     }
 
-    this.listTarjetas.push(tarjeta)
-    this.toastr.success('Tarjeta registrada con exito!', 'Tarjeta Registrada!');
-    this.form.reset();
+    if(this.id == undefined){
+      this._tarjetaService.saveTarjeta(tarjeta).subscribe(data => {
+        this.toastr.success('Tarjeta registrada con exito!', 'Tarjeta Registrada!');
+        this.obtenerTarjetas();
+        this.form.reset();
+      }, error => {
+        this.toastr.error('Opss....   Ocurrio un error', 'Error')
+        console.log(error);
+      });
+    }else {
+      tarjeta.id = this.id;
+      this._tarjetaService.updateTarjeta(this.id, tarjeta).subscribe(data => {
+        this.form.reset();
+        this.accion = 'Agregar';
+        this.id = undefined;
+        this.toastr.info('La tarjeta fue actualizada con exito!','Tarjeta Actualizada');
+        this.obtenerTarjetas();
+      }, error => {
+        console.log(error);
+      })
+    }
+    
   }
 
-  EliminarTarjeta(index: number)  {
-    console.log(index);
-    this.listTarjetas.splice(index, 1);
-    this.toastr.error('La tarjeta fue eliminada con exito', 'Tarjeta eliminada')
-  }  
+  EliminarTarjeta(id: number)  {
+    this._tarjetaService.deleteTarjeta(id).subscribe(data => {
+      this.toastr.error('La tarjeta fue eliminada con exito', 'Tarjeta eliminada');
+      this.obtenerTarjetas();
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  editarTarjeta(tarjeta: any){
+    this.accion = 'Editar';
+    this.id = tarjeta.id;
+    this.form.patchValue({
+      titular: tarjeta.titular,
+      numeroTarjeta: tarjeta.numeroTarjeta,
+      fechaExpiracion: tarjeta.fechaExpiracion,
+      cvv: tarjeta.cvv
+    })
+  }
 
 }
