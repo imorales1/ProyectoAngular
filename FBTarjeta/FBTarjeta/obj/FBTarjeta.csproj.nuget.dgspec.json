@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj": {}
+    "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj": {}
   },
   "projects": {
-    "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj": {
+    "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
+        "projectUniqueName": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
         "projectName": "FBTarjeta",
-        "projectPath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
+        "projectPath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
         "packagesPath": "C:\\Users\\imorales\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\obj\\",
+        "outputPath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

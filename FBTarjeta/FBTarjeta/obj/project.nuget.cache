@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1wv1dE2P/RlxV5cRZiJ/w6+S8Zb/TZ1SV2Q7jB6sq1+2a413r7OfR7+LBQcJtANbq5Z0C+/P+ra9sYcgobRO0Q==",
+  "dgSpecHash": "n5timI+Ia3zr1ej54cBd/oxT0fEzh/EIfDYAd+ipCnxx8M4bJXAsSxE3lKXvcaywnW6x0HsHmTeSWtnSb1fB7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
+  "projectFilePath": "C:\\Users\\imorales\\OneDrive - San Diego, S. A\\Escritorio\\Angular\\FETarjetaCredito\\FBTarjeta\\FBTarjeta\\FBTarjeta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\imorales\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\imorales\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
